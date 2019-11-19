@@ -1,172 +1,45 @@
-# :rocket: Projet Dev. Logiciel :rocket:
-# Easy Mongo Project
+# electron-quick-start
 
-**1er PROJET : LOGICIEL ADAPTATIF**
+**Clone and run for a quick way to see Electron in action.**
 
-## 💎 Objectifs 💎
+This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
 
-3 composantes : une API, une IHM et une BDD. 
+**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
 
-Le but est de créer **une IHM de type CRUD** qui s’adaptera à tout modèle de données importé sous la forme d'un Json, Xml et/ou Csv.
+A basic Electron application needs just these files:
 
-______
+- `package.json` - Points to the app's main file and lists its details and dependencies.
+- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
+- `index.html` - A web page to render. This is the app's **renderer process**.
 
-## ⚙️ Fonctionnalités ⚙️
+You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
 
-L'utilisateur doit pouvoir importer des fichiers XML, JSON, CSV... via une IHM. 
-Une API sera chargée de créer une table dans une BDD après l'import. 
-Lorsque la table sera créée un ORM affichera un CRUD permettant de lire et d'éditer des données sans écrire une seule requête SQL.
+## To Use
 
-**Modèle de données**:
+To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-Le modèle de donnée par défaut sera composée:
+```bash
+# Clone this repository
+git clone https://github.com/electron/electron-quick-start
+# Go into the repository
+cd electron-quick-start
+# Install dependencies
+npm install
+# Run the app
+npm start
+```
 
-- de clients, composés de :
-    - un nom, un prénom
-    - une adresse mail
-    - une date de création
+Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
 
-- de factures, composés de :
-    - une référence à un client
-	- une date d’émission
-	- une donnée indiquant si elle a été payé ou non
-	- une date de paiement
-	- un prix
-	- des références à des produits
-	
-- de produits, composés de :
-	- un nom
-	- un stock
-	- une photo
-	- un prix
-	- des références à des factures
+## Resources for Learning Electron
 
-(Mais il sera possible d'ajouter sa table à l'aide d'un fichier Json, Xml et/ou Csv qui va être automatiquement importé par l'IHM.)
-	
-- **L’API REST** :
-	- doit faire le lien avec la BDD via un ORM (l’ORM peut même créer la BDD) 
-	- doit fournir des routes HTTP pour toutes les actions CRUD de toutes les tables du modèle de données Difficulté : 5
-    - doit fournir (en une route HTTP ou plusieurs) toutes les informations relatives à la composition du modèle de données (comme un MCD mais en JSON) 
+- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
+- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
+- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
+- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
+- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
+- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
 
+## License
 
-- **L’IHM** :
-    - Doit fournir des pages pour toutes les actions CRUD de toutes les tables du modèle de données.
-(Ex : par table, une page liste / suppression et une page ajout / modification).
-    - l’IHM doit utiliser la même page pour une action CRUD, quel que soit la table. 
-    - La page devra se construire toute seule en fonction des informations de composition du modèle fournis par l’API.
-    - Pour ce faire, il faudra créer des composants génériques pour chaque type de champ.
-<br/>
-## 👨‍💻 Technologies utilisées 👨‍💻 ##
-
-### 🔘 Base de données 🔘 ###
-
-**MongoDB**
-Pour nous, MongoDB est un choix judicieux. En effet, le stockage des données proposé convient au format document et c'est une techno de base de données que nous souhaitons davantage explorer.
-
-### Object Relational Mapping ###
-Un ORM "est un type de programme informatique qui se place en interface entre un programme applicatif et une base de données relationnelle pour simuler une base de données orientée objet."
-(**source**: https://fr.wikipedia.org/wiki/Mapping_objet-relationnel)
-Cet outil nous permettra ainsi de mettre en place un CRUD, pour pouvoir lire et éditer les données d'une base. 
-Nous utiliserons **Mongoose**.
-
-### 🤖 Interface Humain-Machine 🤖 ###
-- Back
-    - Node.js / ExpressJS (Api Rest)
-    Node.js est un langage que nous avons pu pratiquer à de nombreuses reprises. Il est utile dans la mise en place d'un système MVC (Model View Controller).
-    Il permet également de communiquer avec tout type de bases de données.
-    
-    - Express.js
-    Express.js est un framework qui permet de construire des applications web basées sur Node.js. C'est de fait le framework standard pour le développement de serveur en Node.js. Il permet aussi le développement d'API couplé au Node.js.
-    
-- Front 
-    - ElectronJS
-    Très utilisé dans la plupart des entreprises, le framework ElectronJS permet de créer tout types d'applications sous plusieurs systèmes d'exploitation. C'est une technologie intéressante dans la mesure où l'on peut créer des logiciels avec une interface graphique claire, et compatibles pour la grande majorité des utilisateurs.
-    
-## Installation d'un environnement de développement
-
-- Visual studio code (Ubuntu 18.04 ls)
-    - 1: Mise a jour d'apt et on installe les dépendances.
-
-        > $ sudo apt update
-        > $ sudo apt install software-properties-common apt-transport-https wget
-
-    - 2: On importe le Microsoft GPG key.
-
-        > $ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-        
-        et on selectionne le repository de VSC:
-        > $ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-
-    - 3: Maintenant que le repository est ajouté, on télécharge la dernière version de VSC.
-
-		> $ sudo apt update
-		> $ sudo apt install code
-
------
-
-
-- NodeJS && Npm
-
-    - 1: Ajouter le paquet Node.js (Lts Release <=> Version stable).
-
-		> $ sudo apt-get install curl
-		> $ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-		
-    - 2: Installer Node.js.
-
-        > $ sudo apt-get install nodejs
-
-    - 3: Vérifier la version de Npm et de Node.
-
-		> $ node -v 
-		> $ npm -v
-
-
-------
-
-- MongoDB
-    - 1: Import de la clé publique utilisée par le manager de paquets du système.
-
-        > $ wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
-    
-    
-    - 2: Créer un fichier liste pour MongoDB.
-
-        > $ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
-        
-    - 3: Mettre à jour la liste des paquets.
-    
-        > $ sudo apt-get update
-    
-    - 4: Installer le paquet MongoDB.
-    
-        > $ sudo apt-get install -y mongodb-org
-    
-    - 5: Vérifier la version installée.
-    
-        > $ mongod --version
-- Initialiser le projet
-  Il suffit de se rendre dans le répertoire du projet et d'exécuter la commande **npm init**.
-  
-- Mongoose
-  - **Après avoir installé NodeJS, npm et MongoDB**
-  $ npm install mongoose
-
-- ElectronJS
-  - **Installer electron globalement**
-  $ npm install electron -g
-  ⚠️**En cas de problème de droits**⚠️
-  sudo npm install -g electron --unsafe-perm=true --allow-root
-
-### Démarrer le projet ###
-  - Editer le fichier **package.json**
-  "scripts": {
-    "start": "electron ."
-  }
-  - **Puis exécuter la commande**
-  $ npm start 
-
-
-  
-
-    
+[CC0 1.0 (Public Domain)](LICENSE.md)
