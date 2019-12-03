@@ -1,2 +1,8 @@
 [2019-12-03 10:15:31.883] [sharedprocess] [info] main {"machineId":"7fe2b848568108ad47440911818054469f53a8e28dc20e15f707f2bcc390b168","windowId":2}
 [2019-12-03 10:16:11.861] [sharedprocess] [info] Starting to clean up unused language packs.
+[2019-12-03 11:40:54.407] [sharedprocess] [info] Installing extension: humao.rest-client
+[2019-12-03 11:40:56.108] [sharedprocess] [info] Downloaded extension: humao.rest-client /tmp/f19b8e2f-ba85-48f8-b4d2-cca65e53f038
+[2019-12-03 11:40:58.434] [sharedprocess] [info] Extracted extension to /home/ewillian/.vscode/extensions/.humao.rest-client-0.23.0: humao.rest-client
+[2019-12-03 11:40:58.442] [sharedprocess] [info] Renamed to /home/ewillian/.vscode/extensions/humao.rest-client-0.23.0
+[2019-12-03 11:40:58.448] [sharedprocess] [info] Installation completed. humao.rest-client
+[2019-12-03 11:40:58.472] [sharedprocess] [info] Extensions installed successfully: humao.rest-client
