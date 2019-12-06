@@ -3,17 +3,17 @@ var Schema = mongoose.Schema
 
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.ObjectId,
-  rowid: String,
+  rowid: Number,
   pseudo:   String,
   firstname: String,
   lastname: String,
   email: String,
   password: String
-}, {collection: 'Example'})
+}, {collection: 'example'})
 
 var user = mongoose.model('user', userSchema)
 
-var mongo = mongoose.connect('mongodb://localhost:3005/Example', {
+var mongo = mongoose.connect('mongodb://localhost:27017/example', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
@@ -25,7 +25,9 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 module.exports = {
 
   get: async(userId) => {
-    var result = user.findOne({"rowid": 0})
+    console.log("userId: "+userId)
+    var result = user.findOne({"rowid": userId})
+    console.log(result)
     return await result;
   },
 

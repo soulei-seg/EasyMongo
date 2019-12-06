@@ -30,7 +30,7 @@ router.get('/all', function(req, res, next) {
 })
 
 // Get one subscriber
-router.get('/user/:id', (req, res, next) => {
+router.get('/user/:userId', (req, res, next) => {
   console.log("get userId")
   User.get(req.params.userId).then((user) => {
     console.log(user)
