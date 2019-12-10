@@ -33,7 +33,7 @@ router.get('/user/:userId', (req, res, next) => {
 
 // Create one subscriber
 router.post('/', (req, res, next) => {
-  console.log(req)
+  console.log(req.body)
   // if (
   //   !req.body.pseudo || req.body.pseudo === '' ||
   //   !req.body.email || req.body.email === '' ||
