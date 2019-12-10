@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.7.11"
+    "mongoose": "^5.7.11",
+    "require-stack": "^1.0.2",
+    "uuid": "^3.3.3"
   }
 }

@@ -9,20 +9,9 @@ router.get('/', function(req, res, next) {
 router.get('/all', function(req, res, next) {
   User.getAll().then((results) => {
     res.format({
-    html: () => {
-      res.render('users/index', {
-        users: results[0],
-        count: results[1],
-        limit: limit,
-        offset: offset
-      })
-    },
     json: () => {
       res.send({
-        data: results[0],
-        meta: {
-          count: results[1]
-        }
+        data: results,
       })
     }
   })
@@ -43,8 +32,24 @@ router.get('/user/:userId', (req, res, next) => {
 })
 
 // Create one subscriber
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
+  console.log(req)
+  // if (
+  //   !req.body.pseudo || req.body.pseudo === '' ||
+  //   !req.body.email || req.body.email === '' ||
+  //   !req.body.firstname || req.body.firstname === ''
+  // ) {
+  //   let err = new Error('Bad Request')
+  //   err.status = 400
+  //   return next(err)
+  // }
 
+  User.insert(req.body).then(() => {
+    res.format({
+      html: () => { res.redirect('/all') },
+      json: () => { res.status(201).send({message: 'success'}) }
+    })
+  }).catch(next)
 })
 
 // Update one subscriber

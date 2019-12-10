@@ -34,6 +34,28 @@ module.exports = {
 
   getAll: async() => {
     return result = user.find({})
-  }
+  },
+
+  insert: async(params) =>{
+    var newid = require('uuid').v4()
+    console.log(params)
+    var newUser = new user({
+      _id: new mongoose.Types.ObjectId(),
+      rowid: newid,
+      pseudo: params.pseudo,
+      firstname: params.firstname,
+      lastname: params.lastname,
+      email: params.email,
+      password: params.password
+    });
+    newUser.save()
+    .then(result => {
+      console.log(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  },
+
 
 }
