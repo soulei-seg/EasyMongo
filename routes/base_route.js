@@ -34,15 +34,15 @@ router.get('/user/:userId', (req, res, next) => {
 // Create one subscriber
 router.post('/', (req, res, next) => {
   console.log(req.body)
-  // if (
-  //   !req.body.pseudo || req.body.pseudo === '' ||
-  //   !req.body.email || req.body.email === '' ||
-  //   !req.body.firstname || req.body.firstname === ''
-  // ) {
-  //   let err = new Error('Bad Request')
-  //   err.status = 400
-  //   return next(err)
-  // }
+  if (
+    !req.body.pseudo || req.body.pseudo === '' ||
+    !req.body.email || req.body.email === '' ||
+    !req.body.firstname || req.body.firstname === ''
+  ) {
+    let err = new Error('Bad Request')
+    err.status = 400
+    return next(err)
+  }
 
   User.insert(req.body).then(() => {
     res.format({
@@ -53,13 +53,21 @@ router.post('/', (req, res, next) => {
 })
 
 // Update one subscriber
-router.patch('/:id', (req, res) => {
-
+router.put('/:userId', (req, res, next) => {
+  User.update(req.params.userId, req.body).then(() => {
+    res.format({
+      json: () => { res.status(200).send({ message: 'success' }) }
+    })
+  }).catch(next)
 })
 
 // Delete one subscriber
-router.delete('/:id', (req, res) => {
-
+router.delete('/:userId', (req, res, next) => {
+  User.remove(req.params.userId).then(() => {
+    res.format({
+      json: () => { res.status(200).send({ message: 'success' }) }
+    })
+  }).catch(next)
 })
 
 module.exports = router

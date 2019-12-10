@@ -3,7 +3,7 @@ var Schema = mongoose.Schema
 
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.ObjectId,
-  rowid: Number,
+  rowid: String,
   pseudo:   String,
   firstname: String,
   lastname: String,
@@ -57,5 +57,21 @@ module.exports = {
     });
   },
 
+  update: async(userId, params) => {
+    const upUser = await user.findOne({rowid: userId});
+    upUser.pseudo = params.pseudo;
+    upUser.firstname = params.firstname;
+    upUser.lastname = params.lastname;
+    upUser.email = params.email;
+    if(!params.password == ""){
+      upUser.password = params.password;
+    }
+    await upUser.save();
+  },
+  
+  remove: async(userId) => {
+    console.log(userId)
+    await user.deleteOne({rowid: userId});
+  }
 
 }
