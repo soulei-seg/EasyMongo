@@ -54,20 +54,16 @@ module.exports = {
   },
 
   update: async(clientId, params) => {
-    const upClient = await client.findOne({rowid: userId});
+    const upClient = await client.findOne({rowid: clientId});
     upClient.firstname = params.firstname;
     upClient.lastname = params.lastname;
     upClient.email = params.email;
     upClient.create_date = params.create_date;
-    if(!params.password == ""){
-      upClient.password = params.password;
-    }
     await upClient.save();
   },
   
-  remove: async(userId) => {
-    console.log(userId)
-    await user.deleteOne({rowid: userId});
+  remove: async(clientId) => {
+    await user.deleteOne({rowid: clientId});
   }
 
 }
