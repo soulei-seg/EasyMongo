@@ -41,7 +41,7 @@ module.exports = {
       rowid: newid,
       firstname: params.firstname,
       lastname: params.lastname,
-      email: params.email,
+      mail: params.mail,
       create_date: params.create_date
     });
     newclient.save()
@@ -57,7 +57,7 @@ module.exports = {
     const upClient = await client.findOne({rowid: clientId});
     upClient.firstname = params.firstname;
     upClient.lastname = params.lastname;
-    upClient.email = params.email;
+    upClient.mail = params.mail;
     upClient.create_date = params.create_date;
     await upClient.save();
   },

@@ -10,7 +10,7 @@ const billSchema = mongoose.Schema({
   payment_date: Date,
   price: Number,
   products: Array
-}, {collection: 'deals'})
+}, {collection: 'bills'})
 
 var bill = mongoose.model('bill', billSchema);
 
