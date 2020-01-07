@@ -11,7 +11,7 @@ db.once('open', () => console.log('connected to database'))
 
 app.use(express.json())
 
-const easymongoRouter = require('./routes/easymongo')
-app.use('/easymongo', easymongoRouter)
+const easymongoRouter = require('./routes/easymongoRoute')
+app.use('/easymongoRoute', easymongoRouter)
 
-app.listen(3005, () => console.log('server started'))
+app.listen(3000, () => console.log('server started'))
