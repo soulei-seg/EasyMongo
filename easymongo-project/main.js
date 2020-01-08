@@ -13,8 +13,8 @@ function createWindow () {
     }
   })
 
-
-  mainWindow.loadURL('http://localhost:3000/easymongo')
+  mainWindow.loadURL('http://localhost:8080/')
+  //mainWindow.loadURL('http://localhost:3000/easymongo')
   //mainWindow.webContents.openDevTools()
 
   mainWindow.on('closed', function () {
