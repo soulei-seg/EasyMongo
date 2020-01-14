@@ -6,6 +6,7 @@ const path = 'Imports/'
   router.get('/', function(req, res, next) {
     tools.getFilesNames(path)
     .then((result) => {
+        tools.ImportData(result)
         console.log(result)
         res.format({
             json: () => {
