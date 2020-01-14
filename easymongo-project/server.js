@@ -23,4 +23,7 @@ app.use('/clientrouteur', ClientRouteur)
 const ProductRouteur = require('./routes/ProductRouteur')
 app.use('/productrouter', ProductRouteur)
 
+const ImportRouteur = require('./routes/ImportRouteur')
+app.use('/import', ImportRouteur)
+
 app.listen(3000, () => console.log('server started'))
