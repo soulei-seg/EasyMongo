@@ -11,9 +11,6 @@ db.once('open', () => console.log('connected to database'))
 
 app.use(express.json())
 
-const easymongoRouter = require('./routes/easymongoRoute')
-app.use('/easymongoRoute', easymongoRouter)
-
 const BillRouteur = require('./routes/BillRouteur')
 app.use('/billrouteur', BillRouteur)
 
@@ -22,5 +19,6 @@ app.use('/clientrouteur', ClientRouteur)
 
 const ProductRouteur = require('./routes/ProductRouteur')
 app.use('/productrouter', ProductRouteur)
+
 
 app.listen(3000, () => console.log('server started'))

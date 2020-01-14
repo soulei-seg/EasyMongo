@@ -10,7 +10,7 @@ router.get('/bills', function(req, res, next) {
       res.send({
         data: results,
       })
-    }
+    },
   })
 }).catch(next)
 })

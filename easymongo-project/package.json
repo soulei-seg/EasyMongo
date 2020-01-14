@@ -1,22 +1,24 @@
 {
   "name": "easymongo-project",
   "version": "0.1.0",
-  "main": "main.js",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=DEV vue-cli-service serve & sleep 5 && NODE_ENV=DEV electron main.js & nodemon server.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "NODE_ENV=DEV vue-cli-service serve & sleep 5 && NODE_ENV=DEV electron main.js & nodemon server.js"
   },
+  "main": "main.js",
   "dependencies": {
     "core-js": "^3.4.4",
     "electron": "^7.1.7",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-router": "^3.1.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-plugin-router": "^4.1.2",
     "@vue/cli-service": "^4.1.0",
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
