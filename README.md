@@ -92,12 +92,13 @@ Nous utiliserons **Mongoose**.
     - 2: On importe le Microsoft GPG key.
 
         > $ wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
-        
+    
         et on selectionne le repository de VSC:
-        > $ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
-
-    - 3: Maintenant que le repository est ajouté, on télécharge la dernière version de VSC.
-
+    
+    > $ sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    
+- 3: Maintenant que le repository est ajouté, on télécharge la dernière version de VSC.
+	
 		> $ sudo apt update
 		> $ sudo apt install code
 
@@ -119,7 +120,6 @@ Nous utiliserons **Mongoose**.
 
 		> $ node -v 
 		> $ npm -v
-
 
 ------
 
@@ -158,7 +158,7 @@ Nous utiliserons **Mongoose**.
   Il suffit de se rendre dans le répertoire du projet et d'exécuter la commande **npm init**.
   
 -------
-  
+
 - Express et Mongoose
   - **Après avoir installé NodeJS, npm et MongoDB**
   
@@ -169,30 +169,43 @@ Nous utiliserons **Mongoose**.
 - ElectronJS
   - **Installer electron globalement**
       > $ npm install electron -g
-  ⚠️**En cas de problème de droits**⚠️
-  sudo npm install -g electron --unsafe-perm=true --allow-root
+  > ⚠️**En cas de problème de droits**⚠️
+  > sudo npm install -g electron --unsafe-perm=true --allow-root
 
 -------
 
 ### Démarrer le projet ###
   - Editer le fichier **package.json**
       >"scripts": {
-    "start": "electron ."
-  }
+    >"start": "electron ."
+  >}
   - **Puis exécuter la commande**
+      
       > $ npm start 
-  
-  
+
+
 # Développement de l'api REST # 
+
+  - Installation et initialisation projet Vue.Js
+
+    - Vue.Js va nous faciliter le développement de l'interfaçe utilisateur.
+        
+    > npm install -g @vue/cli @vue/cli-service-global
+        
+    - On peut initialiser un projet Vue.Js de deux manière. La manière CLI avec `npm install -g @vue/cli @vue/cli-service-global`. Ou la manière Interfaçe graphique en éxécutant `vue ui`.
+
+
   - Installation de dotenv et nodemon
 
     - dotenv permet de récupérer des variables d'environnement depuis un fichier .env et nodemon permet quant à lui de mettre à jour le serveur local à chaque fois que l'on enregistre des données.
+        
         > npm i --save-dev dotenv nodemon
     - On édite ensuite le fichier package.json pour y insérer une nouvelle commande à éxecuter au démarrage : 
-    >"scripts": {
-  "devStart": "nodemon server.js"
-}
+  >"scripts": {
+>"devStart": "nodemon server.js"
+    >}
     
+
 Ce qui donne dans le fichier `package.json` : 
 
 ```JSON
