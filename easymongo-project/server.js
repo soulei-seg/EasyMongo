@@ -15,12 +15,12 @@ const easymongoRouter = require('./routes/easymongoRoute')
 app.use('/easymongoRoute', easymongoRouter)
 
 const BillRouteur = require('./routes/BillRouteur')
-app.use('/b', BillRouteur)
+app.use('/billrouteur', BillRouteur)
 
 const ClientRouteur = require('./routes/ClientRouteur')
-app.use('/c', ClientRouteur)
+app.use('/clientrouteur', ClientRouteur)
 
 const ProductRouteur = require('./routes/ProductRouteur')
-app.use('/p', ProductRouteur)
+app.use('/productrouter', ProductRouteur)
 
 app.listen(3000, () => console.log('server started'))
